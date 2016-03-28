@@ -7,10 +7,11 @@ bpwatch start install_openssl
   puts-step "Installing OpenSSL $OPENSSL_VERSION"
 
   mkdir -p .heroku/openssl
+  mkdir -p .heroku/opensslroot
 
   curl https://www.openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz -s | tar -zxv -C .heroku/openssl &> /dev/null
   pushd .heroku/openssl/openssl-$OPENSSL_VERSION
-  ./config --prefix=$ROOT_DIR
+  ./config --prefix=/app/.heroku/opensslroot
   make
   make install
   popd
