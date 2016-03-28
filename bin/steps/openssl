@@ -9,7 +9,7 @@ puts-step "Installing OpenSSL $OPENSSL_VERSION"
 
 mkdir -p .heroku/vendor
 
-curl -L https://github.com/yuvadm/heroku-buildpack-python-openssl-1.0.2/releases/download/v1/openssl-$OPENSSL_VERSION-root.tar.gz -s | tar -Jxv -C .heroku/vendor &> /dev/null
+curl -L https://github.com/yuvadm/heroku-buildpack-python-openssl-1.0.2/releases/download/v1/openssl-$OPENSSL_VERSION-root.tar.gz -s | tar -Jxv -C .heroku/vendor
 
 export OPENSSL=$(pwd)/vendor
 
