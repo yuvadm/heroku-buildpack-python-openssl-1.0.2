@@ -1,0 +1,21 @@
+set +e
+PYTHON_VERSION=$(cat runtime.txt)
+OPENSSL_VERSION=1.0.2g
+
+# Install OpenSSL
+bpwatch start install_openssl
+  puts-step "Installing OpenSSL $OPENSSL_VERSION"
+
+  mkdir -p .heroku/openssl
+
+  curl https://www.openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz -s | tar -zxv -C .heroku/openssl &> /dev/null
+  pushd .heroku/openssl/openssl-$OPENSSL_VERSION
+  ./config --prefix=$ROOT_DIR
+  make
+  make install
+  popd
+
+bpwatch stop install_openssl
+
+set -e
+hash -r
