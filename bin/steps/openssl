@@ -21,7 +21,7 @@ if [[ "$OPENSSL_BUILD" ]]; then
 else
   puts-step "Installing OpenSSL $OPENSSL_VERSION"
 
-  curl -L https://github.com/yuvadm/heroku-buildpack-python-openssl-1.0.2/releases/download/v1/openssl-$OPENSSL_VERSION-root.tar.xz -s | tar -Jxv -C .heroku/vendor
+  curl -L https://github.com/yuvadm/heroku-buildpack-python-openssl-1.0.2/releases/download/v1/openssl-$OPENSSL_VERSION-root.tar.xz -s | tar -Jx -C .heroku/vendor
 fi
 
 export OPENSSL=$(pwd)/vendor
