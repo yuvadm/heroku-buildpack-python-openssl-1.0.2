@@ -1,7 +1,6 @@
 set +e
 PYTHON_VERSION=$(cat runtime.txt)
 OPENSSL_VERSION=1.0.2g
-OPENSSL_BUILD=0
 
 # Install OpenSSL
 bpwatch start install_openssl
